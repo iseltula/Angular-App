@@ -39,7 +39,7 @@
 		</button>
 		<button data-toggle="tooltip" data-placement="top" title="Click on row to edit" class="btn btn-md btn-default" ng-click="EditForm = !EditForm; AddForm=false">Edit <i class="fa fa-pencil" aria-hidden="true"></i>
 		</button>
-		<button data-toggle="tooltip" data-placement="top" title="Click on row to delete" class="btn btn-md btn-danger" ng-click="deleteUser()">Delete <i class="fa fa-trash" aria-hidden="true"></i>
+		<button data-toggle="tooltip" data-placement="top" title="Click on row to delete" class="btn btn-md btn-danger lastButton" ng-click="deleteUser()">Delete <i class="fa fa-trash" aria-hidden="true"></i>
 		</button>
 	</div>
 	<!--col-->
@@ -54,12 +54,12 @@
 	==================================================-->
 <section id="addSection">
 	<div class="container" ng-show="AddForm === true || EditForm === true" ng-if="AddForm || EditForm">
-		<form role="form" class="form-horizontal">
+		<form role="form" class="form-horizontal" name="LogForm">
 
 			<div class="form-group">
 				<label class="control-label col-md-4" for="Employee Number">Employee Number</label>
 				<div class="col-md-5">
-					<input type="number" min="1" class="form-control" id="employee" ng-model="newUser.employee">
+					<input name="employee" type="number" min="1" class="form-control" id="employee" ng-model="newUser.employee" required= "">    
 				</div>
 				<!--col-->
 			</div>
@@ -69,7 +69,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-4" for="Employee First Name">First Name</label>
 				<div class="col-md-5">
-					<input type="text" class="form-control" id="firstName" ng-model="newUser.firstName">
+					<input type="text" class="form-control" id="firstName" ng-model="newUser.firstName" required>
 				</div>
 				<!--col-->
 			</div>
@@ -78,7 +78,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-4" for="Employee Last Name">Last Name</label>
 				<div class="col-md-5">
-					<input type="text" class="form-control" id="lastName" ng-model="newUser.lastName">
+					<input type="text" class="form-control" id="lastName" ng-model="newUser.lastName" required>
 				</div>
 				<!--col-->
 			</div>
@@ -87,7 +87,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-4" for="Employee Middle Name">Middle Name</label>
 				<div class="col-md-5">
-					<input type="text" class="form-control" id="middleName" ng-model="newUser.middleName">
+					<input type="text" class="form-control" id="middleName" ng-model="newUser.middleName" required>
 				</div>
 				<!--col-->
 			</div>
@@ -96,7 +96,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-4" for="Employee Age">Age</label>
 				<div class="col-md-5">
-					<input type="number" min="0" max="100" class="form-control" id="Age" ng-model="newUser.Age">
+					<input type="number" min="0" max="100" class="form-control" id="Age" ng-model="newUser.Age" required>
 				</div>
 				<!--col-->
 			</div>
@@ -105,7 +105,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-4" for="Employee Designation">Designation</label>
 				<div class="col-md-5">
-					<select class="form-control" ng-model="newUser.designation">
+					<select class="form-control" ng-model="newUser.designation" required>
 						<option>Senior Manager</option>
 						<option>Manager</option>
 						<option>Assistant Manager</option>
@@ -122,7 +122,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-4" for="Employee Salary">Salary</label>
 				<div class="col-md-5">
-					<input type="number" min="1" class="form-control" id="salary" ng-model="newUser.salary">
+					<input required type="number" min="1" class="form-control" id="salary" ng-model="newUser.salary" >
 				</div>
 				<!--col-->
 			</div>
@@ -132,10 +132,10 @@
 
 		<aside>
 			<div class="row">
-				<button class="btn btn-success btn-md" ng-click="addLog(newUser)" ng-show="AddForm">
+				<button class="btn btn-success btn-md" ng-click="addLog(newUser);" ng-show="AddForm">
 					Add
 				</button>
-				<button class="btn btn-danger btn-md" ng-click="cancelOp(); AddForm= !AddForm" ng-show="AddForm">
+				<button class="btn btn-danger btn-md lastButton" ng-click="cancelOp(); AddForm= !AddForm" ng-show="AddForm">
 					Close <i class="fa fa-times" aria-hidden="true"></i>
 				</button>
 
@@ -145,7 +145,7 @@
 				<button class="btn btn-success btn-md saveButton" ng-click="saveOp();" ng-show="EditForm">
 					Save
 				</button>
-				<button class="btn btn-danger btn-md" ng-click="cancelOp(); EditForm= !EditForm" ng-show="EditForm">
+				<button class="btn btn-danger btn-md lastButton" ng-click="cancelOp(); EditForm= !EditForm" ng-show="EditForm">
 					Close <i class="fa fa-times" aria-hidden="true"></i>
 				</button>
 			</div>
