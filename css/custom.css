@@ -144,3 +144,9 @@ footer .fa:hover{
 		font-weight: bold;
 	}
 }
+
+@media only screen (max-width: 319px) {
+	.lastButton{
+		margin-top: 10px;
+	}
+}
