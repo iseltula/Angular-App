@@ -1,0 +1,159 @@
+<!--EMPLOYEE LOG
+	==================================================-->
+
+<article id="employeeLog">
+	<div class="container">
+		<h2>Employee Information</h2>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Number</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Middle Name</th>
+					<th>Age</th>
+					<th>Designation</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in users " ng-click="editUser($index)" ng-class="{formEdit: $index === currentEditId}">
+					<td data-label="Number">{{user.employee}}</a>
+					</td>
+					<td data-label="First Name">{{user.firstName}}</td>
+					<td data-label="Last Name">{{user.lastName}}</td>
+					<td data-label="Middle Name">{{user.middleName}}</td>
+					<td data-label="Age">{{user.Age}}</td>
+					<td data-label="Designation">{{user.designation}}</td>
+					<td data-label="Salary">{{user.salary |currency}}</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</article>
+
+<section id="selectionButton">
+	<div class="container">
+		<button class="btn btn-md btn-default smoothscroll" ng-click="AddForm =!AddForm; EditForm= false">Add <i class="fa fa-plus" aria-hidden="true"></i>
+		</button>
+		<button data-toggle="tooltip" data-placement="top" title="Click on row to edit" class="btn btn-md btn-default" ng-click="EditForm = !EditForm; AddForm=false">Edit <i class="fa fa-pencil" aria-hidden="true"></i>
+		</button>
+		<button data-toggle="tooltip" data-placement="top" title="Click on row to delete" class="btn btn-md btn-danger" ng-click="deleteUser()">Delete <i class="fa fa-trash" aria-hidden="true"></i>
+		</button>
+	</div>
+	<!--col-->
+
+	</div>
+	<!--container-->
+
+</section>
+<!--Select Button-->
+
+<!--Add new Employee
+	==================================================-->
+<section id="addSection">
+	<div class="container" ng-show="AddForm === true || EditForm === true" ng-if="AddForm || EditForm">
+		<form role="form" class="form-horizontal">
+
+			<div class="form-group">
+				<label class="control-label col-md-4" for="Employee Number">Employee Number</label>
+				<div class="col-md-5">
+					<input type="number" min="1" class="form-control" id="employee" ng-model="newUser.employee">
+				</div>
+				<!--col-->
+			</div>
+			<!--form group-->
+
+
+			<div class="form-group">
+				<label class="control-label col-md-4" for="Employee First Name">First Name</label>
+				<div class="col-md-5">
+					<input type="text" class="form-control" id="firstName" ng-model="newUser.firstName">
+				</div>
+				<!--col-->
+			</div>
+			<!--form-group-->
+
+			<div class="form-group">
+				<label class="control-label col-md-4" for="Employee Last Name">Last Name</label>
+				<div class="col-md-5">
+					<input type="text" class="form-control" id="lastName" ng-model="newUser.lastName">
+				</div>
+				<!--col-->
+			</div>
+			<!--form-group-->
+
+			<div class="form-group">
+				<label class="control-label col-md-4" for="Employee Middle Name">Middle Name</label>
+				<div class="col-md-5">
+					<input type="text" class="form-control" id="middleName" ng-model="newUser.middleName">
+				</div>
+				<!--col-->
+			</div>
+			<!--form-group-->
+
+			<div class="form-group">
+				<label class="control-label col-md-4" for="Employee Age">Age</label>
+				<div class="col-md-5">
+					<input type="number" min="0" max="100" class="form-control" id="Age" ng-model="newUser.Age">
+				</div>
+				<!--col-->
+			</div>
+			<!--form-group-->
+
+			<div class="form-group">
+				<label class="control-label col-md-4" for="Employee Designation">Designation</label>
+				<div class="col-md-5">
+					<select class="form-control" ng-model="newUser.designation">
+						<option>Senior Manager</option>
+						<option>Manager</option>
+						<option>Assistant Manager</option>
+						<option>Lead</option>
+						<option>Senior Consultant</option>
+						<option>Consultant</option>
+					</select>
+
+				</div>
+				<!--col-->
+			</div>
+			<!--form-group-->
+
+			<div class="form-group">
+				<label class="control-label col-md-4" for="Employee Salary">Salary</label>
+				<div class="col-md-5">
+					<input type="number" min="1" class="form-control" id="salary" ng-model="newUser.salary">
+				</div>
+				<!--col-->
+			</div>
+			<!--form-group-->
+		</form>
+		<!--form-->
+
+		<aside>
+			<div class="row">
+				<button class="btn btn-success btn-md" ng-click="addLog(newUser)" ng-show="AddForm">
+					Add
+				</button>
+				<button class="btn btn-danger btn-md" ng-click="cancelOp(); AddForm= !AddForm" ng-show="AddForm">
+					Close <i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+
+			</div>
+			<!--row-->
+			<div class="row">
+				<button class="btn btn-success btn-md saveButton" ng-click="saveOp();" ng-show="EditForm">
+					Save
+				</button>
+				<button class="btn btn-danger btn-md" ng-click="cancelOp(); EditForm= !EditForm" ng-show="EditForm">
+					Close <i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+			</div>
+			<!--row-->
+		</aside>
+
+
+	</div>
+	<!--container-->
+</section>
+<!--add section-->

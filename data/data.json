@@ -1,0 +1,52 @@
+[
+	{
+		"id": 0
+		, "employee": 498
+		, "firstName": "Isi"
+		, "lastName": "Denis"
+		, "middleName": "Tula"
+		, "Age": 21
+		, "designation": "Manager"
+		, "salary": 92560
+  }
+	, {
+		"id": 1
+		, "employee": 455
+		, "firstName": "Isel"
+		, "lastName": "Tula"
+		, "middleName": "None"
+		, "Age": 24
+		, "designation": "Senior Consultant"
+		, "salary": 50000
+  }
+	, {
+		"id": 3
+		, "employee": 891
+		, "firstName": "Isel"
+		, "lastName": "Tula"
+		, "middleName": "None"
+		, "Age": 24
+		, "designation": "Lead"
+		, "salary": 65000
+  }
+	, {
+		"id": 4
+		, "employee": 633
+		, "firstName": "Lorem"
+		, "lastName": "Ipsum"
+		, "middleName": "Dolor"
+		, "Age": 65
+		, "designation": "Consultant"
+		, "salary": 43460
+  }
+	, {
+		"id": 5
+		, "employee": 3216
+		, "firstName": "Ipsum"
+		, "lastName": "Lorem"
+		, "middleName": "Dolor"
+		, "Age": 32
+		, "designation": "Senior Management"
+		, "salary": 110000
+  }
+]
